@@ -67,39 +67,42 @@ p{
     background: rgb(245,245,245);
 }
 
+
 /*------------svg-----------------*/
-.canvas .node{
-    stroke:white;
-    stroke-width:2px;
-    fill-opacity:.8;
-    fill:rgb(255,234,0);
-}
-.canvas .node circle{
-    stroke:white;
-    stroke-width:2px;
-}
-.canvas .node text{
+.plot .point text{
     font-size:12px;
     stroke:none;
     fill:white;
-    visibility:hidden;
+    visibility:visible;/* It should be hidden if I want to use hover function.Here I visible it to check the function work or not..I loose!!!*/
 }
-.canvas .node:hover text{
+.plot .point:hover text{
     visibility:visible;
 }
 
-/*Styling axes*/
-.canvas .axis .domain{
-    stroke:white;
-    stroke-width:2px;
-}
-.canvas .axis .tick line{
+/*-------circle style--------*/
+.plot .point{
+    fill:#3399ff;
+    fill-opacity: .5;
     stroke:white;
     stroke-width:1px;
 }
-.canvas .axis.y .tick line{
+
+/*Styling axes*/
+.plot .axis .domain{
+    stroke:white;
+    stroke-width:1px;
+    stroke-opacity:.8;
+}
+.plot .axis .tick line{
+    stroke:white;
+    stroke-width:.5 px;
+    stroke-opacity:.5;
+}
+.plot .axis.y .tick line{
     stroke-dasharray:3 3;
 }
-.canvas .axis .tick text{
+.plot .axis .tick text{
     fill:white;
 }
+
+
