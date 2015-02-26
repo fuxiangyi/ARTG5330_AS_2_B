@@ -21,7 +21,7 @@ var scaleY = d3.scale.log()
     .range([height,0]);
 
 var scaleR = d3.scale.sqrt()
-    .range([15,50]);
+    .range([5,50]);
 
 var axisX = d3.svg.axis()
     .orient('bottom')
@@ -81,7 +81,7 @@ function draw(rows){
         var points = canvas1.selectAll('.point')//return a selection of 0 DOM elements,give back nothing...select 'point' should be consistent
         .data(rows)// try to match..
         .enter()//empty placeholder for missing DOM elements
-        .append('circle')
+        .append('g')
         .attr('class', 'point')//give me the circle elements on page
         .filter(function (m) {
             return m.gdpPerCap && m.co2;
@@ -91,17 +91,18 @@ function draw(rows){
             //.attr('transform', function(d){
             //    return 'translate('+scaleX(d.gdpPerCap)+','+scaleY(d.urbanPop)+')';
             //})
-        .attr('cx', function (m) {
-            return scaleX(m.gdpPerCap);
-        })
-        .attr('cy', function (m) {
-            return scaleY(m.co2);
-        })
-        .attr('r', function (m) {
-            return scaleR(m.population);
+            .attr('transform',function(d){
+                return 'translate('+ scaleX(d.gdpPerCap) +',' +scaleY(d.co2)+')'
+            });
+    points
+        .append('circle')
+        .attr('r',function(d){
+            return scaleR(d.population)
         });
 
-    points.append('text')
+
+    points
+        .append('text')
             .text(function(m){
                 return m.cName;
             })

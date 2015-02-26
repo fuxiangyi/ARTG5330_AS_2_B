@@ -73,7 +73,7 @@ p{
     font-size:12px;
     stroke:none;
     fill:white;
-    visibility:visible;/* It should be hidden if I want to use hover function.Here I visible it to check the function work or not..I loose!!!*/
+    visibility:hidden;/* It should be hidden if I want to use hover function.Here I visible it to check the function work or not..I loose!!!*/
 }
 .plot .point:hover text{
     visibility:visible;
